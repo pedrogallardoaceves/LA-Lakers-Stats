@@ -94,9 +94,11 @@ int main()
     Player Russel("Russel Westbrook", 31, 10.3, 1, 0.3, 8, 2.7, 0, 0, 6, 2, 13, 4.3);
     Player Wenyen("Wenyen Gabriel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1);
 
-
-
-
+    vector<Player> players;
+    players.push_back(Anthony);players.push_back(Austin);players.push_back(Damian);
+    players.push_back(Juan);players.push_back(Kendrick);players.push_back(Lebron);
+    players.push_back(Lonnie);players.push_back(Max);players.push_back(Patrick);
+    players.push_back(Troy);players.push_back(Russel);players.push_back(Wenyen);
 
 
     cout<<"Type a 'c' if your are a client or the password if you are the administrator\n";//the password is potato
