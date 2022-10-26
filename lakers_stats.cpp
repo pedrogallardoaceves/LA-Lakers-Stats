@@ -3,9 +3,45 @@
 #include <vector>
 #include <string>
 #include <fstream>
-//#include <pthread> 
+//#include <pthread.h> 
 
 using namespace std;
+
+
+void ShowNames(vector <Player> p)
+{
+    fstream file("Team Members.txt");
+    file.open("Team Members.txt",ios::app);
+    if(file.fail())
+    {
+        cout<<"The file couldn't be opened"<<"\n";
+    }
+    for(int i=0; i<p.size(); i++)
+    {
+        file<<p.at(i).GetName()<<endl;
+    }
+    cout<<"\n File named Team Members created\n";
+}
+
+/*
+void ShowAll(vector <Player> p)
+{
+    fstream file("All Stats.txt");
+    file.open("All Stats.txt",ios::app);
+    if(file.fail())
+    {
+        cout<<"The file couldn't be opened"<<"\n";
+    }
+    for(int i=0; i<p.size(); i++)
+    {
+        file<<p.at(i).PrintPlayer()<<endl;
+    }
+    cout<<"\n File named All Stats created\n";
+}
+*/
+
+
+
 
 
 Player::Player(){}
@@ -114,25 +150,25 @@ int main()
             switch(op)
             {
                 case 1:
-                    //ShowNames();
+                    ShowNames(players);
                     break;
                 case 2:
-                    
+                    //ShowAll(players);
                     break;
                 case 3:
-
+                    //ShowPlayer();
                     break;
                 case 4:
-
+                    //ShowSpecific();
                     break;
                 case 5:
-
+                    //ShowHighest();
                     break;
                 case 6:
-
+                    //ShowMostPoints();
                     break;
                 case 7:
-
+                    //ShowTop5();
                     break;
                 case 8:
                     cout<<"\nThank you, come back soon!!\n\n";
