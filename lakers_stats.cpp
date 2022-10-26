@@ -57,36 +57,44 @@ void Player::PrintPlayer()
     Anthony Davis*
     Austin Reaves*
 
-    Damian Jones
-    Dennis Schroder
+    Damian Jones*
 
-    Juan Toscano
+    Juan Toscano*
 
-    Kendrick Nunn
+    Kendrick Nunn*
 
     Lebron James*
-    Lonnie Walker
+    Lonnie Walker*
 
-    Max Christie
+    Max Christie*
 
-    Patrick Beverly
+    Patrick Beverley*
 
-    Thomas Bryant
-    Troy Brown
+    Troy Brown*
 
-    Russel Westbrook
+    Russel Westbrook*
 
-    Wenyen Gabriel
+    Wenyen Gabriel*
     */
 
 int main()
 {
     string CorA;
+    //Name, points, threes, FT, blocks, steals, assists
+    Player Anthony ("Anthony Davis", 74, 24.7, 2, 0.66, 16, 5.3, 7, 2.3, 8, 2.7, 3, 1);
+    Player Austin ("Austin Reaves", 14, 4.7, 2, 0.7, 4, 1.3, 0, 0, 1, .3, 4, 1.3);
+    Player Damian("Damian Jones", 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1);
+    Player Juan("Juan Toscano", 12, 4, 1, 0.3, 1, 0.3, 0, 0, 2, 0.7, 3, 1);
+    Player Kendrick("Kendrick Nunn", 13, 4.3, 3, 1, 0, 0, 1, 0.3, 1, 0.3, 5, 1.7);
+    Player Lebron ("Lebron James", 82, 27.3, 7, 0.259, 8, 5.7, 4, 1.33, 3, 1, 22, 7.3);
+    Player Lonnie("Lonnie Walker", 46, 15.3, 3, 1, 7, 2.3, 2, 0.7, 4, 1.3, 9, 3);
+    Player Max("Max Christie", 9, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+    Player Patrick("Patrick Beverley", 15, 5, 3, 1, 6, 2, 4, 1.3, 7, 2.3, 8, 2.7);
+    Player Troy("Troy Brown", 12, 4, 0, 0, 0, 0, 0, 0, 3, 1, 3, 1);
+    Player Russel("Russel Westbrook", 31, 10.3, 1, 0.3, 8, 2.7, 0, 0, 6, 2, 13, 4.3);
+    Player Wenyen("Wenyen Gabriel", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1);
 
-    const Player Lebron ("Lebron James", 82, 27.3, 7, 0.259, 8, 5.7, 4, 1.33, 3, 1, 22, 7.3);
-    const Player Anthony ("Anthony Davis", 74, 24.7, 2, 0.66, 16, 5.3, 7, 2.3, 8, 2.7, 3, 1);
-    const Player Austin ("Austin Reaves", 14, 4.7, 2, 0.7, 4, 1.3, 0, 0, 1, .3, 4, 1.3);
-    const Player Damian("")
+
 
 
 
