@@ -21,24 +21,25 @@ void ShowNames(vector <Player> p)
         file<<p.at(i).GetName()<<endl;
     }
     cout<<"\n File named Team Members created\n";
+    file.close();
 }
 
-/*
 void ShowAll(vector <Player> p)
 {
-    fstream file("All Stats.txt");
-    file.open("All Stats.txt",ios::app);
-    if(file.fail())
+    fstream file1("All Stats.txt");
+    file1.open("All Stats.txt",ios::app);
+    if(file1.fail())
     {
         cout<<"The file couldn't be opened"<<"\n";
     }
     for(int i=0; i<p.size(); i++)
     {
-        file<<p.at(i).PrintPlayer()<<endl;
+        file1<<p.at(i).PrintPlayer()<<endl;
     }
     cout<<"\n File named All Stats created\n";
+    file1.close();
 }
-*/
+
 
 
 
