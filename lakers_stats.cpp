@@ -54,19 +54,28 @@ void Player::PrintPlayer()
 }
 
     /*
-    Lebron James*
-    Anthony Davis
-    Austin Reaves
+    Anthony Davis*
+    Austin Reaves*
+
     Damian Jones
     Dennis Schroder
+
     Juan Toscano
+
     Kendrick Nunn
+
+    Lebron James*
     Lonnie Walker
+
     Max Christie
+
     Patrick Beverly
-    Russel Westbrook
+
     Thomas Bryant
     Troy Brown
+
+    Russel Westbrook
+
     Wenyen Gabriel
     */
 
@@ -74,8 +83,13 @@ int main()
 {
     string CorA;
 
-    Player a("Lebron James", 81,27.3,7,4,7,5,4,2,1,5,4,7);
-    a.PrintPlayer();
+    const Player Lebron ("Lebron James", 82, 27.3, 7, 0.259, 8, 5.7, 4, 1.33, 3, 1, 22, 7.3);
+    const Player Anthony ("Anthony Davis", 74, 24.7, 2, 0.66, 16, 5.3, 7, 2.3, 8, 2.7, 3, 1);
+    const Player Austin ("Austin Reaves", 14, 4.7, 2, 0.7, 4, 1.3, 0, 0, 1, .3, 4, 1.3);
+    const Player Damian("")
+
+
+
 
     cout<<"Type a 'c' if your are a client or the password if you are the administrator\n";//the password is potato
     cin>>CorA;
