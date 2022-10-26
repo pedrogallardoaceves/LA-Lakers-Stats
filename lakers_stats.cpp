@@ -15,7 +15,7 @@ Player::Player(string _Name, int Tpoints, float Apoints, int Tthrees, float Athr
 }
 
 void Player::SetPlayer(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance)
-{
+{   
     name=_Name;
     total_points=Tpoints;
     point_average=Apoints;
