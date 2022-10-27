@@ -175,10 +175,9 @@ void ShowSpecific(vector <Player> p)
                 }while(op!=13);
                 file.close();
                 cout<<"\n File named "+n+" created\n\n";
-                return;
             }
         }
-        cout<<"Type '1' if you would you like to write another player?\n";
+        cout<<"Type '1' if you would you like to write another player?\t else, type a '0'\n";
         cin>>s;
     }while(s==1);
 }
