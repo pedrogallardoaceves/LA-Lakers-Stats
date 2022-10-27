@@ -14,7 +14,7 @@ void ShowNames(vector <Player> p)
     file.open("Team Members.txt",ios::app);
     if(file.fail())
     {
-        cout<<"The file couldn't be opened"<<"\n";
+        cout<<"The file couldn't be opened\n";
     }
     for(int i=0; i<p.size(); i++)
     {
@@ -24,25 +24,34 @@ void ShowNames(vector <Player> p)
     file.close();
 }
 
+
 void ShowAll(vector <Player> p)
 {
-    fstream file1("All Stats.txt");
-    file1.open("All Stats.txt",ios::app);
-    if(file1.fail())
+    fstream file("All Stats.txt");
+    file.open("All Stats",ios::app);
+    if(file.fail())
     {
-        cout<<"The file couldn't be opened"<<"\n";
+        cout<<"The file couldn't be opened\n";
     }
     for(int i=0; i<p.size(); i++)
     {
-        file1<<p.at(i).PrintPlayer()<<endl;
+        file<<"Player: "<<p.at(i).GetName()<<endl;
+        file<<"Total points in the season: "<<p.at(i).GetTotal_points()<<endl;
+        file<<"Points average in the season: "<<p.at(i).GetPoint_average()<<endl<<endl;
+        file<<"Total three points in the season: "<<p.at(i).GetTotal_threes()<<endl;
+        file<<"Three points average in the season: "<<p.at(i).GetThree_average()<<endl<<endl;
+        file<<"Total free throws in the season: "<<p.at(i).GetTotal_frees()<<endl;
+        file<<"Free throws average in the season: "<<p.at(i).GetFree_average()<<endl<<endl;
+        file<<"Total blocks in the season: "<<p.at(i).GetTotal_blocks()<<endl;
+        file<<"Blocks average in the season: "<<p.at(i).GetBlock_average()<<endl<<endl;
+        file<<"Total steals in the season: "<<p.at(i).GetTotal_Steals()<<endl;
+        file<<"Steal average in the season: "<<p.at(i).GetSteal_average()<<endl<<endl;
+        file<<"Total assistance in the season: "<<p.at(i).GetTotal_assistance()<<endl;
+        file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl<<endl;
     }
     cout<<"\n File named All Stats created\n";
-    file1.close();
+    file.close();
 }
-
-
-
-
 
 
 Player::Player(){}
@@ -154,7 +163,7 @@ int main()
                     ShowNames(players);
                     break;
                 case 2:
-                    //ShowAll(players);
+                    ShowAll(players);
                     break;
                 case 3:
                     //ShowPlayer();
