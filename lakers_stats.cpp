@@ -146,7 +146,7 @@ int main()
         int op;
         do
         {
-            cout<<"-------------USERS MENU--------------\n";
+            cout<<"\n-------------USERS MENU--------------\n";
             cout<<"Select one option only: \n";
             cout<<"1 --\tShow all the team mebers in a file\n";
             cout<<"2 --\tShow all the team mebers and their stats in a file\n";
