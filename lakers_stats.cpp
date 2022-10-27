@@ -240,10 +240,10 @@ int main()
             switch(op)
             {
                 case 1:
-                    //
+                    //AddNew();
                     break;
                 case 2:
-                    //
+                    //ModifyList();
                     break;
                 case 3:
                     cout<<"\nThank you, come back soon!!\n\n";
