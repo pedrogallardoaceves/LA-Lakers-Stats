@@ -60,6 +60,7 @@ void ShowPlayer(vector <Player> p)
 {
     string n;
     cout<<"Write the name of the player of which you want to know the stats\n";
+    cin.ignore();
     getline(cin,n);
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
@@ -97,6 +98,7 @@ void ShowSpecific(vector <Player> p)
     int op, s;
     do{
         cout<<"Write the name of the player of which you want to know the stat \n";
+        cin.ignore();
         getline(cin,n);
         for(int i=0; i<p.size(); i++)
         {
