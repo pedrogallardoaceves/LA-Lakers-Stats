@@ -107,7 +107,7 @@ void ShowSpecific(vector <Player> p)
                 if(file.fail())
                 {
                     cout<<"The file couldn't be opened\n";
-                }
+                } 
                 do{
                     cout<<"Select the option of the stat you want to know\n";
                     cout<<"1 - Total points\n";
@@ -164,7 +164,7 @@ void ShowSpecific(vector <Player> p)
                             file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl;
                             break;
                         case 13:
-                            cout<<"See you soon!!\n";
+                            cout<<"Thank you, come back soon!!\n";
                             break;
                         default:
                             cout<<"Invalid option, try again";
