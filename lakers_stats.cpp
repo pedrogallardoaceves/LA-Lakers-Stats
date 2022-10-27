@@ -59,7 +59,7 @@ void ShowAll(vector <Player> p)
 void ShowPlayer(vector <Player> p) 
 {
     string n;
-    cout<<"Write the name of the player of which you want to know the stats\n";
+    cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
     cin.ignore();
     getline(cin,n);
     fstream file(n+".txt");
@@ -97,7 +97,7 @@ void ShowSpecific(vector <Player> p)
     string n;
     int op, s;
     do{
-        cout<<"Write the name of the player of which you want to know the stat \n";
+        cout<<"Write the full name of the player of which you want to know the stat\t example 'Lebron James'\n";
         cin.ignore();
         getline(cin,n);
         for(int i=0; i<p.size(); i++)
