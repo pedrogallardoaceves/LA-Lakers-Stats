@@ -59,7 +59,7 @@ void ShowAll(vector <Player> p)
 void ShowPlayer(vector <Player> p) 
 {
     string n;
-    cout<<"ingresa el nombre del jugador que quieres que te muestre\n";
+    cout<<"Write the name of the player of which you want to know the stats\n";
     getline(cin,n);
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
@@ -83,13 +83,106 @@ void ShowPlayer(vector <Player> p)
             file<<"Total steals in the season: "<<p.at(i).GetTotal_Steals()<<endl;
             file<<"Steal average in the season: "<<p.at(i).GetSteal_average()<<endl<<endl;
             file<<"Total assistance in the season: "<<p.at(i).GetTotal_assistance()<<endl;
-            file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl<<endl<<endl;
+            file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl<<endl;
         }
     }
     file.close();
     cout<<"\n File named "+n+" created\n\n";
     return;
 }
+
+void ShowSpecific(vector <Player> p)
+{
+    string n;
+    int op, s;
+    do{
+        cout<<"Write the name of the player of which you want to know the stat \n";
+        getline(cin,n);
+        for(int i=0; i<p.size(); i++)
+        {
+            if(n==p.at(i).GetName())
+            {
+                fstream file(n+".txt");
+                file.open(n+".txt",ios::app);
+                if(file.fail())
+                {
+                    cout<<"The file couldn't be opened\n";
+                }
+                do{
+                    cout<<"Select the option of the stat you want to know\n";
+                    cout<<"1 - Total points\n";
+                    cout<<"2 - Point average\n\n";
+                    cout<<"3 - Total threes\n";
+                    cout<<"4 - Three average\n\n";
+                    cout<<"5 - Total freethrows\n";
+                    cout<<"6 - Freethrow average\n\n";
+                    cout<<"7 - Total blocks\n";
+                    cout<<"8 - Blocks average\n\n";
+                    cout<<"9 - Total steals\n";
+                    cout<<"10 - Steal average\n\n";
+                    cout<<"11 - Total assists\n";
+                    cout<<"12 - Assist average\n\n";
+                    cout<<"13 - EXIT\n\n";
+                    cin>>op;
+                    switch (op)
+                    {
+                        file<<"Player: "<<p.at(i).GetName()<<endl;
+                        case 1:
+                            file<<"Total points in the season: "<<p.at(i).GetTotal_points()<<endl;
+                            break;
+                        case 2:
+                            file<<"Points average in the season: "<<p.at(i).GetPoint_average()<<endl;
+                            break;
+                        case 3:
+                            file<<"Total three points in the season: "<<p.at(i).GetTotal_threes()<<endl;
+                            break;
+                        case 4:
+                            file<<"Three points average in the season: "<<p.at(i).GetThree_average()<<endl;
+                            break;
+                        case 5:
+                            file<<"Total free throws in the season: "<<p.at(i).GetTotal_frees()<<endl;
+                            break;
+                        case 6:
+                            file<<"Free throws average in the season: "<<p.at(i).GetFree_average()<<endl;
+                            break;
+                        case 7:
+                            file<<"Total blocks in the season: "<<p.at(i).GetTotal_blocks()<<endl;
+                            break;
+                        case 8:
+                            file<<"Blocks average in the season: "<<p.at(i).GetBlock_average()<<endl;
+                            break;
+                        case 9:
+                            file<<"Total steals in the season: "<<p.at(i).GetTotal_Steals()<<endl;
+                            break;
+                        case 10:
+                            file<<"Steal average in the season: "<<p.at(i).GetSteal_average()<<endl;
+                            break;
+                        case 11:
+                            file<<"Total assistance in the season: "<<p.at(i).GetTotal_assistance()<<endl;
+                            break;
+                        case 12:
+                            file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl;
+                            break;
+                        case 13:
+                            cout<<"See you soon!!\n";
+                            break;
+                        default:
+                            cout<<"Invalid option, try again";
+                            break;
+                    }
+                }while(op!=13);
+                file.close();
+                cout<<"\n File named "+n+" created\n\n";
+                return;
+            }
+        }
+        cout<<"Type '1' if you would you like to write another player?\n";
+        cin>>s;
+    }while(s==1);
+}
+
+
+
 
 
 
@@ -208,7 +301,7 @@ int main()
                     ShowPlayer(players);
                     break;
                 case 4:
-                    //ShowSpecific();
+                    ShowSpecific(players);
                     break;
                 case 5:
                     //ShowHighest();
@@ -235,7 +328,7 @@ int main()
             cout<<"Select one option only: \n";
             cout<<"1 --\tAdd a new team player\n";
             cout<<"2 --\tModify a player's information\n";
-            cout<<"3 --\tSalir\n";
+            cout<<"3 --\tEXIT\n";
             cin>>op;
             switch(op)
             {
