@@ -2,10 +2,13 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <array>
+#include <algorithm>
+#pragma once
 #include "player.h"
-//#include <pthread.h> 
 
 using namespace std;
+
 
 void ShowNames(vector <Player> p)
 {
@@ -23,6 +26,9 @@ void ShowNames(vector <Player> p)
     file.close();
     return;
 }
+
+
+
 
 void ShowAll(vector <Player> p)
 {
@@ -54,13 +60,8 @@ void ShowAll(vector <Player> p)
 }
 
 
-
-void ShowPlayer(vector <Player> p) 
+void ShowPlayer(vector <Player> p, string n) 
 {
-    string n;
-    cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
-    cin.ignore();
-    getline(cin,n);
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
     if(file.fail())
@@ -179,5 +180,58 @@ void ShowSpecific(vector <Player> p)
         cout<<"Type '1' if you would you like to write another player?\t else, type a '0'\n";
         cin>>s;
     }while(s==1);
+    return;
 }
 
+
+void ShowMostPoints(vector <Player> p)
+{
+    int aux=0;
+    for(int i=0; i<p.size(); i++)
+    {
+        if(p.at(i).GetTotal_points()>aux)
+        {
+            aux=p.at(i).GetTotal_points();
+        }
+    }
+    for(int i=0; i<p.size(); i++)
+    {
+        if(p.at(i).GetTotal_points()==aux)
+        {
+            ShowPlayer(p, p.at(i).GetName());
+        }
+    }
+    return;
+}
+
+
+void ShowTop5(vector <Player> p)
+{
+    int arr[p.size()];
+    for(int i=0; i<p.size(); i++)
+    {
+        arr[i]=p.at(i).GetTotal_points();
+    }
+    sort(arr, arr+p.size());
+
+
+    fstream file("Top 5.txt");
+    file.open("Top 5.txt",ios::app);
+    if(file.fail())
+    {
+        cout<<"The file couldn't be opened\n";
+    }
+    for(int i=p.size(); i>=p.size()-5; i--)
+    {
+        for(int j=0; j<p.size(); j++)
+        {
+            if(arr[i]==p.at(j).GetTotal_points())
+            {
+                file<<"Player: "<<p.at(j).GetName()<<endl;
+                file<<"Ponts: "<<p.at(j).GetTotal_points()<<endl<<endl;
+            }
+        }
+    }
+    cout<<"\nFile names 'Top 5' created\n";
+    return;
+}
