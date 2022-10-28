@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <array>
+#include <algorithm>
 #include "player.h"
 //#include "file_creator.h"
 //#include <pthread.h> 
@@ -179,6 +181,7 @@ void ShowSpecific(vector <Player> p)
         cout<<"Type '1' if you would you like to write another player?\t else, type a '0'\n";
         cin>>s;
     }while(s==1);
+    return;
 }
 
 
@@ -201,6 +204,39 @@ void ShowMostPoints(vector <Player> p)
     }
     return;
 }
+
+
+void ShowTop5(vector <Player> p)
+{
+    int arr[p.size()];
+    for(int i=0; i<p.size(); i++)
+    {
+        arr[i]=p.at(i).GetTotal_points();
+    }
+    sort(arr, arr+p.size());
+
+
+    fstream file("Top 5.txt");
+    file.open("Top 5.txt",ios::app);
+    if(file.fail())
+    {
+        cout<<"The file couldn't be opened\n";
+    }
+    for(int i=p.size(); i>=p.size()-5; i--)
+    {
+        for(int j=0; j<p.size(); j++)
+        {
+            if(arr[i]==p.at(j).GetTotal_points())
+            {
+                file<<"Player: "<<p.at(j).GetName()<<endl;
+                file<<"Ponts: "<<p.at(j).GetTotal_points()<<endl<<endl;
+            }
+        }
+    }
+    cout<<"\nFile names 'Top 5' created\n";
+    return;
+}
+
 
 
 
@@ -266,7 +302,7 @@ int main()
                     ShowMostPoints(players);
                     break;
                 case 6:
-                    //ShowTop5();
+                    ShowTop5(players);
                     break;
                 case 7:
                     cout<<"\nThank you, come back soon!!\n\n";
