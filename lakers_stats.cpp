@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "FileCreater.h"
+#include "FileCreator.h"
 //#include <pthread.h> 
 
 using namespace std;

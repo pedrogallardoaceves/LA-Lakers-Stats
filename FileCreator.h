@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "player.h"
 //#include <pthread.h> 
 
 using namespace std;

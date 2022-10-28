@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "FileCreater.h"
+#include "FileCreator.h"
 //#include <pthread.h> 
 
 using namespace std;
@@ -47,8 +47,6 @@ class Player
 
         int GetTotal_assistance(){return total_assistance;}
         float GetAssistance_average(){return assistance_average;}
-
-        
 };
     Player::Player(){}
     Player::Player(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance)
