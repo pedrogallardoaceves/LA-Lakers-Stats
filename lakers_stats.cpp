@@ -2,12 +2,11 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <array>
 #include <algorithm>
 #include "player.h"
 #include "file_creator.h"
 #include "AdminActions.h"
-//#include <pthread.h> 
+#include <pthread.h>
 
 using namespace std;
 
@@ -16,6 +15,8 @@ int main()
 {
     string CorA, x;
     char cad;
+    pthread_t my_thread;
+
     //Name, points, threes, FT, blocks, steals, assists
     Player Anthony ("Anthony Davis", 74, 24.7, 2, 0.66, 16, 5.3, 7, 2.3, 8, 2.7, 3, 1);
     Player Austin ("Austin Reaves", 14, 4.7, 2, 0.7, 4, 1.3, 0, 0, 1, .3, 4, 1.3);
@@ -36,7 +37,32 @@ int main()
     players.push_back(Lonnie);players.push_back(Max);players.push_back(Patrick);
     players.push_back(Troy);players.push_back(Russel);players.push_back(Wenyen);
 
+        cout<<"                                                                                                                   \n";
+        cout<<"                                                                                                                   \n";
+        cout<<"\n\n";
+        cout<<"LLLLLLLLLLL                               kkkkkkkk                                                                 \n";
+        cout<<"L:::::::::L                               k::::::k                                                                 \n";
+        cout<<"L:::::::::L                               k::::::k                                                                 \n";
+        cout<<"LL:::::::LL                               k::::::k                                                                 \n";
+        cout<<"  L:::::L                 aaaaaaaaaaaaa    k:::::k    kkkkkkk eeeeeeeeeeee    rrrrr   rrrrrrrrr       ssssssssss   \n";
+        cout<<"  L:::::L                 a::::::::::::a   k:::::k   k:::::kee::::::::::::ee  r::::rrr:::::::::r    ss::::::::::s  \n";
+        cout<<"  L:::::L                 aaaaaaaaa:::::a  k:::::k  k:::::ke::::::eeeee:::::eer:::::::::::::::::r ss:::::::::::::s \n";
+        cout<<"  L:::::L                          a::::a  k:::::k k:::::ke::::::e     e:::::err::::::rrrrr::::::rs::::::ssss:::::s\n";
+        cout<<"  L:::::L                   aaaaaaa:::::a  k::::::k:::::k e:::::::eeeee::::::e r:::::r     r:::::r s:::::s  ssssss \n";
+        cout<<"  L:::::L                 aa::::::::::::a  k:::::::::::k  e:::::::::::::::::e  r:::::r     rrrrrrr   s::::::s      \n";
+        cout<<"  L:::::L                a::::aaaa::::::a  k:::::::::::k  e::::::eeeeeeeeeee   r:::::r                  s::::::s   \n";
+        cout<<"  L:::::L         LLLLLLa::::a    a:::::a  k::::::k:::::k e:::::::e            r:::::r            ssssss   s:::::s \n";
+        cout<<"LL:::::::LLLLLLLLL:::::La::::a    a:::::a k::::::k k:::::ke::::::::e           r:::::r            s:::::ssss::::::s\n";
+        cout<<"L::::::::::::::::::::::La:::::aaaa::::::a k::::::k  k:::::ke::::::::eeeeeeee   r:::::r            s::::::::::::::s \n";
+        cout<<"L::::::::::::::::::::::L a::::::::::aa:::ak::::::k   k:::::kee:::::::::::::e   r:::::r             s:::::::::::ss  \n";
+        cout<<"LLLLLLLLLLLLLLLLLLLLLLLL  aaaaaaaaaa  aaaakkkkkkkk    kkkkkkk eeeeeeeeeeeeee   rrrrrrr              sssssssssss    \n";
+        cout<<"                                                                                                                   \n";
+        cout<<"                                                                                                                   \n";
+
+
     do{
+        
+
         cout<<"Type a 'c' if your are a client or the password if you are the administrator\n";//the password is potato
         cin>>CorA;
         if(CorA=="c" || CorA=="C")
@@ -57,8 +83,12 @@ int main()
                 switch(op)
                 {
                     case 1:
-                        ShowNames(players);
+                    
+                        pthread_create(&my_thread,NULL,&ShowNames,(void*)players );
+                        pthread_join(my_thread,NULL);
+                        //ShowNames(players);
                         break;
+                    
                     case 2:
                         ShowAll(players);
                         break;

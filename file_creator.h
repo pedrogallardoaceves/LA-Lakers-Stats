@@ -6,11 +6,14 @@
 #include <algorithm>
 #pragma once
 #include "player.h"
+#include <pthread.h>
 
 using namespace std;
 
 
-void ShowNames(vector <Player> p)
+
+/*
+void *ShowNames(void * arg)
 {
     fstream file("Team Members.txt");
     file.open("Team Members.txt",ios::app);
@@ -24,8 +27,10 @@ void ShowNames(vector <Player> p)
     }
     cout<<"\n File named Team Members created\n\n";
     file.close();
-    return;
+    pthread_exit(NULL);
 }
+*/
+
 
 
 
@@ -60,6 +65,8 @@ void ShowAll(vector <Player> p)
 }
 
 
+
+
 void ShowPlayer(vector <Player> p, string n) 
 {
     fstream file(n+".txt");
@@ -91,6 +98,8 @@ void ShowPlayer(vector <Player> p, string n)
     cout<<"\n File named "+n+" created\n\n";
     return;
 }
+
+
 
 void ShowSpecific(vector <Player> p)
 {
@@ -184,6 +193,8 @@ void ShowSpecific(vector <Player> p)
 }
 
 
+
+
 void ShowMostPoints(vector <Player> p)
 {
     int aux=0;
@@ -203,6 +214,8 @@ void ShowMostPoints(vector <Player> p)
     }
     return;
 }
+
+
 
 
 void ShowTop5(vector <Player> p)
