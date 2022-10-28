@@ -92,10 +92,7 @@ int main()
                         pthread_join(my_thread,NULL);
                         break;
                     case 3:
-                        cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
-                        cin.ignore();
-                        getline(cin,x);
-                        pthread_create(&my_thread,NULL,ShowPlayer,&(players,x));
+                        pthread_create(&my_thread,NULL,ShowPlayer,&players);
                         pthread_join(my_thread,NULL);
                         break;
                     case 4:

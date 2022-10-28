@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 void *ShowNames(void * args)
 {
     vector<Player>* p = static_cast<vector<Player>*>(args);
@@ -59,14 +58,13 @@ void *ShowAll(void * args)
     pthread_exit(NULL);
 }
 
-
-
-
 void *ShowPlayer(void * args)
 {
     vector<Player>* p = static_cast<vector<Player>*>(args);
-    string* c=static_cast<string*>(args);
-    string n=static_cast<string>(*c);
+    string n;
+    cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
+    cin.ignore();
+    getline(cin,n);
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
     if(file.fail())
@@ -96,8 +94,6 @@ void *ShowPlayer(void * args)
     cout<<"\n File named "+n+" created\n\n";
     pthread_exit(NULL);
 }
-
-
 
 void *ShowSpecific(void * args)
 {
@@ -191,32 +187,44 @@ void *ShowSpecific(void * args)
     pthread_exit(NULL);
 }
 
-
-
-
 void *ShowMostPoints(void * args)
 {
-    pthread_t t;
-    vector<Player>*c = static_cast<vector<Player>*>(args);
-    vector<Player>p = static_cast<vector<Player>>(*c);
+    vector<Player>*p = static_cast<vector<Player>*>(args);
+    fstream file("Points Leader.txt");
+    file.open("Ponts Leader.txt",ios::app);
+    if(file.fail())
+    {
+        cout<<"The file couldn't be opened\n";
+    }
     int aux=0;
-    string x;
-    for(int i=0; i<p.size(); i++)
+    for(int i=0; i<p->size(); i++)
     {
-        if(p.at(i).GetTotal_points()>aux)
+        if(p->at(i).GetTotal_points()>aux)
         {
-            aux=p.at(i).GetTotal_points();
+            aux=p->at(i).GetTotal_points();
         }
     }
-    for(int i=0; i<p.size(); i++)
+    for(int i=0; i<p->size(); i++)
     {
-        if(p.at(i).GetTotal_points()==aux)
+        if(p->at(i).GetTotal_points()==aux)
         {
-            x=p.at(i).GetName();
-            pthread_create(&t,NULL,ShowPlayer,&(p,x));
-            pthread_join(t,NULL);
+           
+            file<<"Player: "<<p->at(i).GetName()<<endl;
+            file<<"Total points in the season: "<<p->at(i).GetTotal_points()<<endl;
+            file<<"Points average in the season: "<<p->at(i).GetPoint_average()<<endl<<endl;
+            file<<"Total three points in the season: "<<p->at(i).GetTotal_threes()<<endl;
+            file<<"Three points average in the season: "<<p->at(i).GetThree_average()<<endl<<endl;
+            file<<"Total free throws in the season: "<<p->at(i).GetTotal_frees()<<endl;
+            file<<"Free throws average in the season: "<<p->at(i).GetFree_average()<<endl<<endl;
+            file<<"Total blocks in the season: "<<p->at(i).GetTotal_blocks()<<endl;
+            file<<"Blocks average in the season: "<<p->at(i).GetBlock_average()<<endl<<endl;
+            file<<"Total steals in the season: "<<p->at(i).GetTotal_Steals()<<endl;
+            file<<"Steal average in the season: "<<p->at(i).GetSteal_average()<<endl<<endl;
+            file<<"Total assistance in the season: "<<p->at(i).GetTotal_assistance()<<endl;
+            file<<"Assistance average in the season: "<<p->at(i).GetAssistance_average()<<endl<<endl;
         }
     }
+    cout<<"\nFile named 'Points Leader' created\n\n";
     pthread_exit(NULL);
 }
 
