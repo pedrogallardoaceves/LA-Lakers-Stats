@@ -86,13 +86,10 @@ int main()
                     case 1:
                         pthread_create(&my_thread,NULL,ShowNames,&players);
                         pthread_join(my_thread,NULL);
-                        //ShowNames(players);
                         break;
-                    
                     case 2:
                         pthread_create(&my_thread,NULL,ShowAll,&players);
                         pthread_join(my_thread,NULL);
-                        //ShowAll(players);
                         break;
                     case 3:
                         cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
@@ -100,16 +97,18 @@ int main()
                         getline(cin,x);
                         pthread_create(&my_thread,NULL,ShowPlayer,&(players,x));
                         pthread_join(my_thread,NULL);
-                        //ShowPlayer(players, x);
                         break;
                     case 4:
-                        ShowSpecific(players);
+                        pthread_create(&my_thread,NULL,ShowSpecific,&players);
+                        pthread_join(my_thread,NULL);
                         break;
                     case 5:
-                        ShowMostPoints(players);
+                        pthread_create(&my_thread,NULL,ShowMostPoints,&players);
+                        pthread_join(my_thread,NULL);
                         break;
                     case 6:
-                        ShowTop5(players);
+                        pthread_create(&my_thread,NULL,ShowTop5,&players);
+                        pthread_join(my_thread,NULL);
                         break;
                     case 7:
                         cout<<"\nThank you, come back soon!!\n\n";
