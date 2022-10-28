@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 void ShowNames(vector <Player> p)
 {
     fstream file("Team Members.txt");
