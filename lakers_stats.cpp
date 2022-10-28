@@ -7,6 +7,7 @@
 #include "file_creator.h"
 #include "AdminActions.h"
 #include <pthread.h>
+//#include <stdlib.h>
 
 using namespace std;
 
@@ -83,20 +84,23 @@ int main()
                 switch(op)
                 {
                     case 1:
-                    
-                        pthread_create(&my_thread,NULL,&ShowNames,(void*)players );
+                        pthread_create(&my_thread,NULL,ShowNames,&players);
                         pthread_join(my_thread,NULL);
                         //ShowNames(players);
                         break;
                     
                     case 2:
-                        ShowAll(players);
+                        pthread_create(&my_thread,NULL,ShowAll,&players);
+                        pthread_join(my_thread,NULL);
+                        //ShowAll(players);
                         break;
                     case 3:
                         cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
                         cin.ignore();
                         getline(cin,x);
-                        ShowPlayer(players, x);
+                        pthread_create(&my_thread,NULL,ShowPlayer,&(players,x));
+                        pthread_join(my_thread,NULL);
+                        //ShowPlayer(players, x);
                         break;
                     case 4:
                         ShowSpecific(players);

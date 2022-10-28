@@ -11,53 +11,49 @@
 using namespace std;
 
 
-
-/*
-void *ShowNames(void * arg)
+void *ShowNames(void * args)
 {
+    vector<Player>* p = static_cast<vector<Player>*>(args);
     fstream file("Team Members.txt");
     file.open("Team Members.txt",ios::app);
     if(file.fail())
     {
         cout<<"The file couldn't be opened\n";
     }
-    for(int i=0; i<p.size(); i++)
+    for(int i=0; i<p->size(); i++)
     {
-        file<<p.at(i).GetName()<<endl;
+        file<<p->at(i).GetName()<<endl;
     }
     cout<<"\n File named Team Members created\n\n";
     file.close();
     pthread_exit(NULL);
 }
-*/
 
-
-
-
-
-void ShowAll(vector <Player> p)
+void *ShowAll(void * args)
 {
+    vector<Player>* p = static_cast<vector<Player>*>(args);
+
     fstream file("All Stats.txt");
     file.open("All Stats",ios::app);
     if(file.fail())
     {
         cout<<"The file couldn't be opened\n\n";
     }
-    for(int i=0; i<p.size(); i++)
+    for(int i=0; i<p->size(); i++)
     {
-        file<<"Player: "<<p.at(i).GetName()<<endl;
-        file<<"Total points in the season: "<<p.at(i).GetTotal_points()<<endl;
-        file<<"Points average in the season: "<<p.at(i).GetPoint_average()<<endl<<endl;
-        file<<"Total three points in the season: "<<p.at(i).GetTotal_threes()<<endl;
-        file<<"Three points average in the season: "<<p.at(i).GetThree_average()<<endl<<endl;
-        file<<"Total free throws in the season: "<<p.at(i).GetTotal_frees()<<endl;
-        file<<"Free throws average in the season: "<<p.at(i).GetFree_average()<<endl<<endl;
-        file<<"Total blocks in the season: "<<p.at(i).GetTotal_blocks()<<endl;
-        file<<"Blocks average in the season: "<<p.at(i).GetBlock_average()<<endl<<endl;
-        file<<"Total steals in the season: "<<p.at(i).GetTotal_Steals()<<endl;
-        file<<"Steal average in the season: "<<p.at(i).GetSteal_average()<<endl<<endl;
-        file<<"Total assistance in the season: "<<p.at(i).GetTotal_assistance()<<endl;
-        file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl<<endl<<endl;
+        file<<"Player: "<<p->at(i).GetName()<<endl;
+        file<<"Total points in the season: "<<p->at(i).GetTotal_points()<<endl;
+        file<<"Points average in the season: "<<p->at(i).GetPoint_average()<<endl<<endl;
+        file<<"Total three points in the season: "<<p->at(i).GetTotal_threes()<<endl;
+        file<<"Three points average in the season: "<<p->at(i).GetThree_average()<<endl<<endl;
+        file<<"Total free throws in the season: "<<p->at(i).GetTotal_frees()<<endl;
+        file<<"Free throws average in the season: "<<p->at(i).GetFree_average()<<endl<<endl;
+        file<<"Total blocks in the season: "<<p->at(i).GetTotal_blocks()<<endl;
+        file<<"Blocks average in the season: "<<p->at(i).GetBlock_average()<<endl<<endl;
+        file<<"Total steals in the season: "<<p->at(i).GetTotal_Steals()<<endl;
+        file<<"Steal average in the season: "<<p->at(i).GetSteal_average()<<endl<<endl;
+        file<<"Total assistance in the season: "<<p->at(i).GetTotal_assistance()<<endl;
+        file<<"Assistance average in the season: "<<p->at(i).GetAssistance_average()<<endl<<endl<<endl;
     }
     cout<<"\n File named All Stats created\n\n";
     file.close();
@@ -67,31 +63,34 @@ void ShowAll(vector <Player> p)
 
 
 
-void ShowPlayer(vector <Player> p, string n) 
+void *ShowPlayer(void * args) 
 {
+    vector<Player>* p = static_cast<vector<Player>*>(args);
+    string* n=static_cast<string*>(args);
+
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
     if(file.fail())
     {
         cout<<"The file couldn't be opened\n";
     }
-    for(int i=0; i<p.size(); i++)
+    for(int i=0; i<p->size(); i++)
     {
-        if(n==p.at(i).GetName())
+        if(n==p->at(i).GetName())
         {
-            file<<"Player: "<<p.at(i).GetName()<<endl;
-            file<<"Total points in the season: "<<p.at(i).GetTotal_points()<<endl;
-            file<<"Points average in the season: "<<p.at(i).GetPoint_average()<<endl<<endl;
-            file<<"Total three points in the season: "<<p.at(i).GetTotal_threes()<<endl;
-            file<<"Three points average in the season: "<<p.at(i).GetThree_average()<<endl<<endl;
-            file<<"Total free throws in the season: "<<p.at(i).GetTotal_frees()<<endl;
-            file<<"Free throws average in the season: "<<p.at(i).GetFree_average()<<endl<<endl;
-            file<<"Total blocks in the season: "<<p.at(i).GetTotal_blocks()<<endl;
-            file<<"Blocks average in the season: "<<p.at(i).GetBlock_average()<<endl<<endl;
-            file<<"Total steals in the season: "<<p.at(i).GetTotal_Steals()<<endl;
-            file<<"Steal average in the season: "<<p.at(i).GetSteal_average()<<endl<<endl;
-            file<<"Total assistance in the season: "<<p.at(i).GetTotal_assistance()<<endl;
-            file<<"Assistance average in the season: "<<p.at(i).GetAssistance_average()<<endl<<endl;
+            file<<"Player: "<<p->at(i).GetName()<<endl;
+            file<<"Total points in the season: "<<p->at(i).GetTotal_points()<<endl;
+            file<<"Points average in the season: "<<p->at(i).GetPoint_average()<<endl<<endl;
+            file<<"Total three points in the season: "<<p->at(i).GetTotal_threes()<<endl;
+            file<<"Three points average in the season: "<<p->at(i).GetThree_average()<<endl<<endl;
+            file<<"Total free throws in the season: "<<p->at(i).GetTotal_frees()<<endl;
+            file<<"Free throws average in the season: "<<p->at(i).GetFree_average()<<endl<<endl;
+            file<<"Total blocks in the season: "<<p->at(i).GetTotal_blocks()<<endl;
+            file<<"Blocks average in the season: "<<p->at(i).GetBlock_average()<<endl<<endl;
+            file<<"Total steals in the season: "<<p->at(i).GetTotal_Steals()<<endl;
+            file<<"Steal average in the season: "<<p->at(i).GetSteal_average()<<endl<<endl;
+            file<<"Total assistance in the season: "<<p->at(i).GetTotal_assistance()<<endl;
+            file<<"Assistance average in the season: "<<p->at(i).GetAssistance_average()<<endl<<endl;
         }
     }
     file.close();
