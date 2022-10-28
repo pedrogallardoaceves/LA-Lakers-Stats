@@ -360,7 +360,8 @@ int main()
                 cout<<"Select one option only: \n";
                 cout<<"1 --\tAdd a new team player\n";
                 cout<<"2 --\tModify a player's information\n";
-                cout<<"3 --\tEXIT\n";
+                cout<<"3 --\t Erase a player from the team\n";
+                cout<<"4 --\tEXIT\n";
                 cin>>op;
                 switch(op)
                 {
@@ -371,20 +372,28 @@ int main()
                         players.push_back(AddNew(y));
                         break;
                     case 2:
-                        cout<<"Write the name of the player thet you want to modify\n";
+                        cout<<"Write the name of the player that you want to modify\n";
                         cin.ignore();
                         getline(cin,y);
-                        for(int i=0; i<players.size(); i++) if(y==players.at(i).GetName())players.erase(players.begin()+i-1);
+                        for(int i=0; i<players.size(); i++) if(y==players.at(i).GetName())players.erase(players.begin()+i);
                         players.push_back(ModifyList(y));
+                        cout<<"Changes applied correctly\n";
                         break;
                     case 3:
+                        cout<<"Write the name of the player that you want to erase\n";
+                        cin.ignore();
+                        getline(cin,y);
+                        for(int i=0; i<players.size(); i++) if(y==players.at(i).GetName())players.erase(players.begin()+i);
+                        cout<<"Player erased\n";
+                        break;
+                    case 4:
                         cout<<"\nThank you, come back soon!!\n\n";
                         break;
                     default:
                         cout<<"Invalid option, try again\n\n";
                         break;
                 }
-            }while(op!=3);
+            }while(op!=4);
 
         }
         else
@@ -394,6 +403,7 @@ int main()
         }
         cout<<"Type a 'y' if you want to keep browsing, if not, type 'n'\n";
         cin>>cad;
-    }while(cad!='n' || cad!='N');
+    }while(cad!='n');
+    cout<<"\nThank you, come back soon!!\n\n";
     return 0;
 }
