@@ -45,5 +45,3 @@ Player ModifyList(string c)
 {
     return AddNew(c);
 }
-
-
