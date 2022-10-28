@@ -1,0 +1,38 @@
+Player: Lebron James
+Total points in the season: 82
+Points average in the season: 27.3
+
+Total three points in the season: 7
+Three points average in the season: 2.3
+
+Total free throws in the season: 8
+Free throws average in the season: 5.7
+
+Total blocks in the season: 4
+Blocks average in the season: 1.33
+
+Total steals in the season: 3
+Steal average in the season: 1
+
+Total assistance in the season: 22
+Assistance average in the season: 7.3
+
+Player: Lebron James
+Total points in the season: 30
+Points average in the season: 10
+
+Total three points in the season: 9
+Three points average in the season: 3
+
+Total free throws in the season: 6
+Free throws average in the season: 2
+
+Total blocks in the season: 3
+Blocks average in the season: 1
+
+Total steals in the season: 2
+Steal average in the season: 0.7
+
+Total assistance in the season: 9
+Assistance average in the season: 3
+
