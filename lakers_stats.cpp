@@ -1,9 +1,9 @@
 #include <iostream>
-#include "player.h"
 #include <vector>
 #include <string>
 #include <fstream>
-#include "FileCreator.h"
+#include "player.h"
+#include "file_creator.h"
 //#include <pthread.h> 
 
 using namespace std;

@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "FileCreator.h"
 //#include <pthread.h> 
 
 using namespace std;
@@ -27,7 +26,6 @@ class Player
         Player();
         Player(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance);
         void SetPlayer(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance);
-
         string GetName(){return name;}
 
         int GetTotal_points(){return total_points;}

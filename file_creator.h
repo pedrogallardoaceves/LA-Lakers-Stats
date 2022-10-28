@@ -7,11 +7,6 @@
 
 using namespace std;
 
-void ShowNames(vector <Player> p);
-void ShowAll(vector <Player> p);
-void ShowPlayer(vector <Player> p);
-void ShowSpecific(vector <Player> p);
-
 
 void ShowNames(vector <Player> p)
 {
