@@ -3,12 +3,12 @@
 #include <string>
 #include <fstream>
 #include "player.h"
-#include "file_creator.h"
+//#include "file_creator.h"
 //#include <pthread.h> 
 
 using namespace std;
 
-/*
+
 void ShowNames(vector <Player> p)
 {
     fstream file("Team Members.txt");
@@ -59,12 +59,8 @@ void ShowAll(vector <Player> p)
 }
 
 
-void ShowPlayer(vector <Player> p) 
+void ShowPlayer(vector <Player> p, string n) 
 {
-    string n;
-    cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
-    cin.ignore();
-    getline(cin,n);
     fstream file(n+".txt");
     file.open(n+".txt",ios::app);
     if(file.fail())
@@ -184,21 +180,33 @@ void ShowSpecific(vector <Player> p)
         cin>>s;
     }while(s==1);
 }
-*/
 
 
-
-/*
 void ShowMostPoints(vector <Player> p)
 {
-    
+    int aux=0;
+    for(int i=0; i<p.size(); i++)
+    {
+        if(p.at(i).GetTotal_points()>aux)
+        {
+            aux=p.at(i).GetTotal_points();
+        }
+    }
+    for(int i=0; i<p.size(); i++)
+    {
+        if(p.at(i).GetTotal_points()==aux)
+        {
+            ShowPlayer(p, p.at(i).GetName());
+        }
+    }
+    return;
 }
-*/
+
 
 
 int main()
 {
-    string CorA;
+    string CorA, x;
     //Name, points, threes, FT, blocks, steals, assists
     Player Anthony ("Anthony Davis", 74, 24.7, 2, 0.66, 16, 5.3, 7, 2.3, 8, 2.7, 3, 1);
     Player Austin ("Austin Reaves", 14, 4.7, 2, 0.7, 4, 1.3, 0, 0, 1, .3, 4, 1.3);
@@ -246,13 +254,16 @@ int main()
                     ShowAll(players);
                     break;
                 case 3:
-                    ShowPlayer(players);
+                    cout<<"Write the full name of the player of which you want to know the stats\t example 'Lebron James'\n";
+                    cin.ignore();
+                    getline(cin,x);
+                    ShowPlayer(players, x);
                     break;
                 case 4:
                     ShowSpecific(players);
                     break;
                 case 5:
-                    //ShowMostPoints();
+                    ShowMostPoints(players);
                     break;
                 case 6:
                     //ShowTop5();
@@ -262,6 +273,7 @@ int main()
                     break;
                 default:
                     cout<<"Invalid option, try again\n\n";
+                    break;
             }
         }while(op!=7);
     }
