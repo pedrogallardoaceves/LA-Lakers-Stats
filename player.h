@@ -1,4 +1,9 @@
+#include <iostream>
+#include <vector>
 #include <string>
+#include <fstream>
+#include "FileCreater.h"
+//#include <pthread.h> 
 
 using namespace std;
 
@@ -22,7 +27,6 @@ class Player
         Player();
         Player(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance);
         void SetPlayer(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance);
-        void PrintPlayer();
 
         string GetName(){return name;}
 
@@ -43,4 +47,28 @@ class Player
 
         int GetTotal_assistance(){return total_assistance;}
         float GetAssistance_average(){return assistance_average;}
+
+        
 };
+    Player::Player(){}
+    Player::Player(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance)
+    {
+        SetPlayer(_Name, Tpoints, Apoints, Tthrees, Athrees, Tfree, Afree, Tblocks, Ablocks, Tsteals, Asteals, Tassistance, Aassistance);
+    }
+
+    void Player::SetPlayer(string _Name, int Tpoints, float Apoints, int Tthrees, float Athrees, int Tfree, float Afree, int Tblocks, float Ablocks, int Tsteals, float Asteals, int Tassistance, float Aassistance)
+    {   
+        name=_Name;
+        total_points=Tpoints;
+        point_average=Apoints;
+        total_threes=Tthrees;
+        threes_average=Athrees;
+        total_free=Tfree;
+        free_average=Afree;
+        total_blocks=Tblocks;
+        blocks_average=Ablocks;
+        total_steals=Tsteals;
+        steals_average=Asteals;
+        total_assistance=Tassistance;
+        assistance_average=Aassistance;
+    }
